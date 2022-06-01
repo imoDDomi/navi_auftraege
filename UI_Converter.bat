@@ -1,0 +1,1 @@
+pyside6-uic.exe suche_aufträge.ui -o suche_aufträge.py
