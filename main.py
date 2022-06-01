@@ -1,8 +1,10 @@
+import os
 import subprocess
 import sys
 from re import sub
 
 import keyboard
+from black import path_empty
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont, QFontDatabase, QGuiApplication
 from PySide6.QtWidgets import QApplication, QDialog, QFileDialog, QMainWindow
@@ -25,19 +27,23 @@ def generate_path():
 
     linecontent = window.le_auftragsnummer.displayText()
 
-    arg1 = linecontent[0:2]
+    arg1 = linecontent[0:2]  # 21
     print(arg1)
-    arg2 = linecontent[2:4]
+    arg2 = linecontent[2:4]  # 29
     print(arg2)
-    arg3 = linecontent[4:6]
-    print(arg3)
+    arg3_fn = arg2 + linecontent[4:6]  # 2980
+    print(arg3_fn)
 
-    # arg2 = 80
-    # arg3 = arg1 + arg2 + "Projektname"
+    path = os.listdir(f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}")  # Pfad wo die einzelnen Aufträge liegen
 
-    # generated_path = f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}\\{arg3}\\4_Elektrik_IBN"
+    arg3 = ""
+    for i in path:
+        if i.startswith(arg3_fn):
+            arg3 = i
 
-    # open_dir(generated_path)
+    generated_path = f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}\\{arg3}\\4_Elektrik_IBN"
+
+    open_dir(generated_path)
 
 
 def open_dir(path):
