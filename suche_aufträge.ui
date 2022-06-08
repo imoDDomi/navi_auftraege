@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Aufträge</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icons/lupe_black.png</normaloff>icons/lupe_black.png</iconset>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">

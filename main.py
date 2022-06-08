@@ -6,8 +6,8 @@ from re import sub
 import keyboard
 from black import path_empty
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QFont, QFontDatabase, QGuiApplication
-from PySide6.QtWidgets import QApplication, QDialog, QFileDialog, QMainWindow
+from PySide6.QtGui import QCloseEvent, QFont, QFontDatabase, QGuiApplication, QIcon
+from PySide6.QtWidgets import QApplication, QDialog, QFileDialog, QMainWindow, QSystemTrayIcon
 
 from suche_aufträge import Ui_Hauptfenster
 
@@ -18,21 +18,24 @@ class InputWindow(QDialog, Ui_Hauptfenster):
         self.setupUi(self)
         self.le_auftragsnummer.returnPressed.connect(generate_path)
 
+    def closeEvent(self, evnt):
+        evnt.ignore()
+        window.hide()
+
 
 path = "C:\\MFT\\1_Auftraege\\21\\29\\2980_Heller_Daimler_Untertuerkheim_mFL5\\4_Elektrik_IBN"
 
 
 def generate_path():
-    window.close()
+    window.hide()
 
     linecontent = window.le_auftragsnummer.displayText()
 
     arg1 = linecontent[0:2]  # 21
-    print(arg1)
+
     arg2 = linecontent[2:4]  # 29
-    print(arg2)
+
     arg3_fn = arg2 + linecontent[4:6]  # 2980
-    print(arg3_fn)
 
     path = os.listdir(f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}")  # Pfad wo die einzelnen Aufträge liegen
 
@@ -48,8 +51,24 @@ def generate_path():
 
 def open_dir(path):
 
-    print("test 2")
     subprocess.Popen(f"explorer {path}")
+
+
+def showwindow():
+    window.show()
+    pass
+
+
+# def showicon():
+#     tray_icon = QIcon()
+#     tray_icon.addFile("icons/lupe_white.png")
+#     Systemtrayicon = QSystemTrayIcon()
+#     Systemtrayicon.setIcon(tray_icon)
+#     Systemtrayicon.show()
+
+
+# def close_app():
+# print("fenster schließen")
 
 
 def main():
@@ -60,5 +79,16 @@ if __name__ == "__main__":
     main()
     app = QApplication()
     window = InputWindow()
-    window.show()
+
+    tray_icon = QIcon()
+    tray_icon.addFile("icons/lupe_white.png")
+    Systemtrayicon = QSystemTrayIcon()
+    Systemtrayicon.setIcon(tray_icon)
+    Systemtrayicon.show()
+
+    Systemtrayicon.activated.connect(showwindow)
+
     sys.exit(app.exec())
+
+    # window.closeEvent()
+    # sys.exit(app.exec())
