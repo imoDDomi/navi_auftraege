@@ -1,13 +1,10 @@
 import os
 import subprocess
 import sys
-from re import sub
 
-import keyboard
-from black import path_empty
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QCloseEvent, QFont, QFontDatabase, QGuiApplication, QIcon
-from PySide6.QtWidgets import QApplication, QDialog, QFileDialog, QMainWindow, QSystemTrayIcon
+from PySide6.QtCore import QPoint, Qt
+from PySide6.QtGui import QGuiApplication, QIcon
+from PySide6.QtWidgets import QApplication, QDialog, QMenu, QSystemTrayIcon
 
 from suche_aufträge import Ui_Hauptfenster
 
@@ -23,7 +20,8 @@ class InputWindow(QDialog, Ui_Hauptfenster):
         window.hide()
 
 
-path = "C:\\MFT\\1_Auftraege\\21\\29\\2980_Heller_Daimler_Untertuerkheim_mFL5\\4_Elektrik_IBN"
+def exit_program():
+    sys.exit(app.exec())
 
 
 def generate_path():
@@ -55,20 +53,10 @@ def open_dir(path):
 
 
 def showwindow():
+
+    window.move(800, 538)
     window.show()
-    pass
-
-
-# def showicon():
-#     tray_icon = QIcon()
-#     tray_icon.addFile("icons/lupe_white.png")
-#     Systemtrayicon = QSystemTrayIcon()
-#     Systemtrayicon.setIcon(tray_icon)
-#     Systemtrayicon.show()
-
-
-# def close_app():
-# print("fenster schließen")
+    window.activateWindow()
 
 
 def main():
@@ -78,17 +66,22 @@ def main():
 if __name__ == "__main__":
     main()
     app = QApplication()
+
     window = InputWindow()
 
     tray_icon = QIcon()
     tray_icon.addFile("icons/lupe_white.png")
     Systemtrayicon = QSystemTrayIcon()
     Systemtrayicon.setIcon(tray_icon)
+    Systemtrayicon.setToolTip("Suche Auftrag")
     Systemtrayicon.show()
 
     Systemtrayicon.activated.connect(showwindow)
 
-    sys.exit(app.exec())
+    menu = QMenu()
 
-    # window.closeEvent()
-    # sys.exit(app.exec())
+    exit_app = menu.addAction("exit")
+    Systemtrayicon.setContextMenu(menu)
+    exit_app.triggered.connect(exit_program)
+
+    sys.exit(app.exec())
