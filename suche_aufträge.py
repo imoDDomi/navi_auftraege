@@ -8,32 +8,27 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QHBoxLayout,
-    QLineEdit, QSizePolicy, QSpacerItem, QWidget)
+from PySide6.QtCore import QCoreApplication, QMetaObject, QSize
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QGridLayout, QHBoxLayout, QLineEdit, QSizePolicy, QSpacerItem
+
 
 class Ui_Hauptfenster(object):
     def setupUi(self, Hauptfenster):
         if not Hauptfenster.objectName():
-            Hauptfenster.setObjectName(u"Hauptfenster")
+            Hauptfenster.setObjectName("Hauptfenster")
         Hauptfenster.resize(182, 60)
         Hauptfenster.setMinimumSize(QSize(182, 60))
         Hauptfenster.setMaximumSize(QSize(182, 60))
         icon = QIcon()
-        icon.addFile(u"icons/lupe_black.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile("icons/lupe_black.png", QSize(), QIcon.Normal, QIcon.Off)
         Hauptfenster.setWindowIcon(icon)
         self.horizontalLayout = QHBoxLayout(Hauptfenster)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.gridLayout = QGridLayout()
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setObjectName("gridLayout")
         self.le_auftragsnummer = QLineEdit(Hauptfenster)
-        self.le_auftragsnummer.setObjectName(u"le_auftragsnummer")
+        self.le_auftragsnummer.setObjectName("le_auftragsnummer")
         self.le_auftragsnummer.setMinimumSize(QSize(150, 0))
 
         self.gridLayout.addWidget(self.le_auftragsnummer, 1, 1, 1, 1)
@@ -54,17 +49,16 @@ class Ui_Hauptfenster(object):
 
         self.gridLayout.addItem(self.verticalSpacer_2, 2, 1, 1, 1)
 
-
         self.horizontalLayout.addLayout(self.gridLayout)
-
 
         self.retranslateUi(Hauptfenster)
 
         QMetaObject.connectSlotsByName(Hauptfenster)
+
     # setupUi
 
     def retranslateUi(self, Hauptfenster):
-        Hauptfenster.setWindowTitle(QCoreApplication.translate("Hauptfenster", u"Auftr\u00e4ge", None))
-        self.le_auftragsnummer.setPlaceholderText(QCoreApplication.translate("Hauptfenster", u"Auftragsnummer", None))
-    # retranslateUi
+        Hauptfenster.setWindowTitle(QCoreApplication.translate("Hauptfenster", "Auftr\u00e4ge", None))
+        self.le_auftragsnummer.setPlaceholderText(QCoreApplication.translate("Hauptfenster", "Auftragsnummer", None))
 
+    # retranslateUi

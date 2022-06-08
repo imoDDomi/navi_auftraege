@@ -54,7 +54,7 @@ def open_dir(path):
 
 def showwindow():
 
-    window.move(800, 538)
+    window.move(817, 540)
     window.show()
     window.activateWindow()
 
