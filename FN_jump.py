@@ -1,6 +1,7 @@
 import os
 import subprocess
 import sys
+import tkinter as tk
 
 from PySide6.QtCore import QPoint, Qt
 from PySide6.QtGui import QGuiApplication, QIcon
@@ -54,7 +55,16 @@ def open_dir(path):
 
 def showwindow():
 
-    window.move(817, 540)
+    root = tk.Tk()
+
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    print(screen_width, screen_height)  # 3000x800 -2183 x -1460  (817, 540 )
+
+    x = screen_width - 2183
+    y = screen_height - 1460
+
+    window.move(x, y)
     window.show()
     window.activateWindow()
 
