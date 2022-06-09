@@ -59,7 +59,7 @@ def showwindow():
 
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
-    print(screen_width, screen_height)  # 3000x800 -2183 x -1460  (817, 540 )
+    # 3000x800 -2183 x -1460  (817, 540 )
 
     x = screen_width - 2183
     y = screen_height - 1460
