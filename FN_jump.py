@@ -1,9 +1,8 @@
 import os
 import subprocess
 import sys
-import tkinter as tk
 
-from PySide6.QtCore import QPoint, QSize, Qt
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QGuiApplication, QIcon
 from PySide6.QtWidgets import QApplication, QDialog, QMenu, QSystemTrayIcon
 
@@ -54,44 +53,6 @@ def open_dir(path):
 
 
 def showwindow():
-
-    # ph = window.geometry().height()
-    # px = window.geometry().x()
-    # py = window.geometry().y()
-    # dw = window.width()
-    # dh = window.height()
-    # window.setGeometry(px, py + ph - dh, dw, dh)
-    # print(ph, px, py, dw, dh)
-
-    # geo = window.frameGeometry()
-    # window.move(geo.setBottomRight())
-    # print(geo.bottomRight(), geo.setBottomRight())
-
-    # screenrect = window.geometry()
-    # window.move(screenrect.right() - window.width(), screenrect.bottom() - window.height())
-    # print(screenrect.right(), window.width(), screenrect.bottom(), window.height())
-    # root = tk.Tk()
-
-    # centerPoint = window.availableGeometry().center()
-    # print(centerPoint)
-
-    # screen_width = root.winfo_screenwidth()
-    # screen_height = root.winfo_screenheight()
-
-    # size_dialog = 182, 60
-    # newsize_x = screen_width - 182
-    # newsize_y = screen_height - 60
-
-    # print(newsize_x, newsize_y)
-
-    # 3000x800 -2183 x -1460  (817, 540 ) Surface
-    # 3440x1440               (1530, 600) PC-widescreen
-
-    # x = screen_width - 2183
-    # y = screen_height - 1460
-
-    # window.move(1530, 600)
-    # window.move(3440, 1440)
 
     Screensize = getScreenSize()
     print(Screensize)
