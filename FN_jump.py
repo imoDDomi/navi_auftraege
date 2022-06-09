@@ -35,8 +35,13 @@ def generate_path():
 
     arg3_fn = arg2 + linecontent[4:6]  # 2980
 
-    path = os.listdir(f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}")  # Pfad wo die einzelnen Aufträge liegen
-
+    try:
+        path = os.listdir(f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}")  # Pfad wo die einzelnen Aufträge liegen
+    except:
+        try:
+            subprocess.Popen(f"explorer C:\\MFT\\1_Auftraege")
+        except:
+            subprocess.Popen(f"explorer")
     arg3 = ""
     for i in path:
         if i.startswith(arg3_fn):
@@ -55,13 +60,12 @@ def open_dir(path):
 def showwindow():
 
     Screensize = getScreenSize()
-    print(Screensize)
 
     offset_taskbar = 55
 
     x = Screensize[0] - window.width()
     y = Screensize[1] - window.height() - offset_taskbar
-    print(x, y)
+
     window.move(x, y)
     window.show()
     window.activateWindow()
