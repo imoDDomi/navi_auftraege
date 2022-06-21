@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
     menu = QMenu()
 
-    exit_app = menu.addAction("exit")
+    exit_app = menu.addAction("Exit")
     Systemtrayicon.setContextMenu(menu)
     exit_app.triggered.connect(exit_program)
 
