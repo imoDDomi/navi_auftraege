@@ -34,36 +34,38 @@ def generate_path():
     arg2 = linecontent[2:4]  # 29
 
     arg3_fn = arg2 + linecontent[4:6]  # 2980
-
     try:
-        path = os.listdir(f"K:\\MFT\\1_Auftraege\\{arg1}\\{arg2}")  # Pfad wo die einzelnen Aufträge liegen
+        FN_path = os.listdir(f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}")  # Pfad wo die einzelnen Aufträge liegen
+
     except:
-        try:
-            subprocess.Popen(f"explorer K:\\MFT\\1_Auftraege")
-        except:
-            subprocess.Popen(f"explorer")
+        subprocess.Popen(f"explorer C:\\MFT\\1_Auftraege\\{arg1}")
     arg3 = ""
-    for i in path:
+
+    for i in FN_path:
         if i.startswith(arg3_fn):
             arg3 = i
 
-    generated_path = f"K:\\MFT\\1_Auftraege\\{arg1}\\{arg2}\\{arg3}\\4_Elektrik_IBN"
+    generated_path = f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}\\{arg3}\\4_Elektrik_IBN"
 
-    open_dir(generated_path)
+    open_dir(generated_path, arg1)
 
 
-def open_dir(path):
+def open_dir(FN_path, arg1):
 
-    subprocess.Popen(f"explorer {path}")
+    if os.path.exists(FN_path) == True:
+        subprocess.Popen(f"explorer {FN_path}")
+
+    else:
+        subprocess.Popen(f"explorer C:\\MFT\\1_Auftraege\\{arg1}")
 
 
 def showwindow():
 
     Screensize = getScreenSize()
 
-    offset_taskbar = 55
-
-    x = Screensize[0] - window.width()
+    offset_taskbar = 75
+    offset_side = 4
+    x = Screensize[0] - window.width() - offset_side
     y = Screensize[1] - window.height() - offset_taskbar
 
     window.move(x, y)
