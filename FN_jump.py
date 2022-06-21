@@ -35,17 +35,17 @@ def generate_path():
 
     arg3_fn = arg2 + linecontent[4:6]  # 2980
     try:
-        FN_path = os.listdir(f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}")  # Pfad wo die einzelnen Aufträge liegen
+        FN_path = os.listdir(f"K:\\MFT\\1_Auftraege\\{arg1}\\{arg2}")  # Pfad wo die einzelnen Aufträge liegen
 
     except:
-        subprocess.Popen(f"explorer C:\\MFT\\1_Auftraege\\{arg1}")
+        subprocess.Popen(f"explorer K:\\MFT\\1_Auftraege\\{arg1}")
     arg3 = ""
 
     for i in FN_path:
         if i.startswith(arg3_fn):
             arg3 = i
 
-    generated_path = f"C:\\MFT\\1_Auftraege\\{arg1}\\{arg2}\\{arg3}\\4_Elektrik_IBN"
+    generated_path = f"K:\\MFT\\1_Auftraege\\{arg1}\\{arg2}\\{arg3}\\4_Elektrik_IBN"
 
     open_dir(generated_path, arg1)
 
@@ -56,7 +56,7 @@ def open_dir(FN_path, arg1):
         subprocess.Popen(f"explorer {FN_path}")
 
     else:
-        subprocess.Popen(f"explorer C:\\MFT\\1_Auftraege\\{arg1}")
+        subprocess.Popen(f"explorer K:\\MFT\\1_Auftraege\\{arg1}")
 
 
 def showwindow():

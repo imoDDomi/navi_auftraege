@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "C:/Programmieren/GitHub/Auftr\u00e4ge Navigator/FN_jump.py"
+   "value": "C:/Programmieren/Auftr\u00e4ge Navigator/FN_jump.py"
   },
   {
    "optionDest": "onefile",
@@ -19,7 +19,7 @@
   },
   {
    "optionDest": "icon_file",
-   "value": "C:/Programmieren/GitHub/Auftr\u00e4ge Navigator/icons/lupe_white.ico"
+   "value": "C:/Programmieren/Auftr\u00e4ge Navigator/icons/lupe_white.ico"
   },
   {
    "optionDest": "ascii",
@@ -71,7 +71,11 @@
   },
   {
    "optionDest": "datas",
-   "value": "C:/Programmieren/GitHub/Auftr\u00e4ge Navigator/icons;icons/"
+   "value": "C:/Programmieren/Liebherr/NC-Editor/icons;icons/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Programmieren/Auftr\u00e4ge Navigator/icons;icons/"
   }
  ],
  "nonPyinstallerOptions": {
